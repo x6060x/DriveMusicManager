@@ -262,12 +262,7 @@ namespace DriveMusicManager
 
             foreach (var albumInfo in albums)
             {
-                string custom = albumInfo.Custom;
-                if (!string.IsNullOrEmpty(custom))
-                {
-                    custom += Constants.DataRowSeparator;
-                }
-                data1Contents += FormattableString.Invariant($"/{albumInfo.AlbumId}/\t{albumInfo.AlbumName}\t{albumInfo.Code1}\t{albumInfo.AlbumType}\t{custom}\n");
+                data1Contents += FormattableString.Invariant($"/{albumInfo.AlbumId}/\t{albumInfo.AlbumName}\t{albumInfo.Code1}\t{albumInfo.AlbumType}\t{albumInfo.Custom}\n");
             }
 
             File.WriteAllText(data1FilePath, data1Contents);
