@@ -47,6 +47,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.albumNameComboBox = new System.Windows.Forms.ComboBox();
             this.loadAlbums = new System.Windows.Forms.Button();
+            this.autoImportCheckBox = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.albumsGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -135,7 +136,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.availableSpaceStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 314);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 330);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(560, 22);
             this.statusStrip1.SizingGrip = false;
@@ -156,7 +157,7 @@
             this.albumsGroupBox.Controls.Add(this.groupBox1);
             this.albumsGroupBox.Location = new System.Drawing.Point(12, 41);
             this.albumsGroupBox.Name = "albumsGroupBox";
-            this.albumsGroupBox.Size = new System.Drawing.Size(536, 261);
+            this.albumsGroupBox.Size = new System.Drawing.Size(536, 280);
             this.albumsGroupBox.TabIndex = 11;
             this.albumsGroupBox.TabStop = false;
             this.albumsGroupBox.Text = "Albums";
@@ -196,6 +197,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.autoImportCheckBox);
             this.groupBox1.Controls.Add(this.albumNameComboBox);
             this.groupBox1.Controls.Add(this.browseSourcePath);
             this.groupBox1.Controls.Add(this.sourcePathTextBox);
@@ -205,7 +207,7 @@
             this.groupBox1.Controls.Add(this.progressBar);
             this.groupBox1.Location = new System.Drawing.Point(6, 146);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 109);
+            this.groupBox1.Size = new System.Drawing.Size(524, 128);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add to album";
@@ -229,12 +231,24 @@
             this.loadAlbums.UseVisualStyleBackColor = true;
             this.loadAlbums.Click += new System.EventHandler(this.LoadAlbums_Click);
             // 
+            // autoImportCheckBox
+            // 
+            this.autoImportCheckBox.AutoSize = true;
+            this.autoImportCheckBox.Checked = true;
+            this.autoImportCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoImportCheckBox.Location = new System.Drawing.Point(6, 106);
+            this.autoImportCheckBox.Name = "autoImportCheckBox";
+            this.autoImportCheckBox.Size = new System.Drawing.Size(178, 17);
+            this.autoImportCheckBox.TabIndex = 10;
+            this.autoImportCheckBox.Text = "Auto-import dragged file or folder";
+            this.autoImportCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 336);
+            this.ClientSize = new System.Drawing.Size(560, 352);
             this.Controls.Add(this.loadAlbums);
             this.Controls.Add(this.albumsGroupBox);
             this.Controls.Add(this.statusStrip1);
@@ -279,6 +293,7 @@
         private System.Windows.Forms.ComboBox albumNameComboBox;
         private System.Windows.Forms.Button addNewAlbum;
         private System.Windows.Forms.ListView albumItemsListView;
+        private System.Windows.Forms.CheckBox autoImportCheckBox;
     }
 }
 
