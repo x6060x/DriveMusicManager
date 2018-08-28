@@ -76,13 +76,9 @@ namespace DriveMusicManager
             }
             else
             {
-                processingStarted = true;
                 startStopProcessing.Text = "Cancel";
-
                 await AddToAlbum();
-
                 startStopProcessing.Text = "Add to album";
-                processingStarted = false;
             }
         }
 
@@ -133,9 +129,16 @@ namespace DriveMusicManager
             }
         }
 
-        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        private async void MainForm_DragDrop(object sender, DragEventArgs e)
         {
             sourcePathTextBox.Text = ((string[])e.Data.GetData(DataFormats.FileDrop)).FirstOrDefault();
+
+            if (autoImportCheckBox.Checked)
+            {
+                startStopProcessing.Text = "Cancel";
+                await AddToAlbum();
+                startStopProcessing.Text = "Add to album";
+            }
         }
 
         private void RemoveAlbum()
@@ -161,6 +164,8 @@ namespace DriveMusicManager
 
         private async Task AddToAlbum()
         {
+            processingStarted = true;
+
             string sourcePath = sourcePathTextBox.Text;
             string albumId = GetSelectedAlbumId();
 
@@ -177,6 +182,8 @@ namespace DriveMusicManager
             UpdateStorageInfo();
 
             MessageBox.Show("The selected folder was successfully imported.", "Folder imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            processingStarted = false;
         }
 
         private void CancelAddingAlbum()
